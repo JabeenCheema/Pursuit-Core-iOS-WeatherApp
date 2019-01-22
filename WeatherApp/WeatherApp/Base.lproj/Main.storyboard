@@ -150,7 +150,7 @@
                                 <rect key="frame" x="0.0" y="7.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="247" id="VCI-27-zSk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavsCell" rowHeight="247" id="VCI-27-zSk" customClass="FavsCell" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="247"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VCI-27-zSk" id="qW3-yP-N5f">
@@ -168,6 +168,9 @@
                                                 <constraint firstItem="Lvb-lt-ZrT" firstAttribute="centerY" secondItem="qW3-yP-N5f" secondAttribute="centerY" id="whF-0C-FME"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoriteImageView" destination="Lvb-lt-ZrT" id="POj-8C-e5Y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -182,10 +185,13 @@
                         <viewLayoutGuide key="safeArea" id="teD-0v-EHj"/>
                     </view>
                     <navigationItem key="navigationItem" id="r2i-vA-Xyp"/>
+                    <connections>
+                        <outlet property="imageTableview" destination="eEh-cm-DPC" id="wP6-sH-MOv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ayh-ip-V9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2871.1999999999998" y="743.47826086956525"/>
+            <point key="canvasLocation" x="2612" y="822.63868065967017"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="BFr-ca-AHL">
@@ -353,7 +359,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIC-fw-Mn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="742.5787106446777"/>
+            <point key="canvasLocation" x="1908" y="823"/>
         </scene>
     </scenes>
 </document>
