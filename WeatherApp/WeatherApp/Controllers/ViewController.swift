@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  override func viewDidLoad() {
+    @IBOutlet weak var weatherCollectionView: UICollectionView!
+    @IBOutlet weak var zipcodetextField: UITextField!
+    @IBOutlet weak var forecastLabel: UILabel!
+    
+    
+    override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
   }
 
 

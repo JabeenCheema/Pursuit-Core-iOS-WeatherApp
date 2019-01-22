@@ -33,3 +33,5 @@ struct Forecast: Codable {
     let precipIN: Int
     
 }
+
+

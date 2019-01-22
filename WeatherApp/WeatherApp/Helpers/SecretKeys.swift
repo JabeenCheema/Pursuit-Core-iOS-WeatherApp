@@ -12,4 +12,5 @@ struct SecretKeys {
     
     static let weatherID = "fU3AIkdN0gAaNmoO9AmUn"
     static let weatherKey = "MoBYeKlrDr7Iqwc2SQetB1i133SFBkx4AvZPqdCg"
+    static let photoKey = "11354626-6ff5250da1b5d247cb6b2d580"
 }
