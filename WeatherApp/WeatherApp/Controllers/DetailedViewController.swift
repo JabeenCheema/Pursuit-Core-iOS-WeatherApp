@@ -10,6 +10,10 @@ import UIKit
 
 class DetailedViewController: UIViewController {
 
+    var selectedCity: String!
+    var forecastSelected: Forecast!
+    
+    
     @IBOutlet weak var forecastAndDate: UILabel!
     @IBOutlet weak var cityImage: UIImageView!
     @IBOutlet weak var weatherDescription: UILabel!
@@ -29,5 +33,9 @@ class DetailedViewController: UIViewController {
     }
     
 
-   
+
 }
+
+
+
+

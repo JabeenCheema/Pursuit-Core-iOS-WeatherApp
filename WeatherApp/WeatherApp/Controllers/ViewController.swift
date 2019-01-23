@@ -9,6 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var selectedCity = "New York"
+    var weatherForecast = [Forecast]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.weatherCollectionView.reloadData()
+            }
+        }
+    }
+    
+    
 
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     @IBOutlet weak var zipcodetextField: UITextField!
@@ -27,6 +38,22 @@ class ViewController: UIViewController {
     getData(string: "11429")
   }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedCell = sender as? UICollectionViewCell,
+        let indexPath = weatherCollectionView.indexPath(for: selectedCell),
+            let destination = segue.destination as? DetailedViewController else { return }
+        destination.selectedCity = selectedCity
+        destination.forecastSelected = weatherForecast[indexPath.row]
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     func getData(string: String) { // string = zipcode
         AerisAPIClient.searchZipcode(keyword: string) { (appError, weatherData) in
             if let appError = appError {
