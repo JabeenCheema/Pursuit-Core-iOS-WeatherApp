@@ -47,6 +47,14 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = weatherCollectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as? WeatherCell else { return UICollectionViewCell() }
+        let currentForecast = weatherData[indexPath.row]
+        cell.Date.text = currentForecast.dateTimeISO
+        cell.highTemp.text = "\(currentForecast.maxTempF)"
+        cell.lowTemp.text = "\(currentForecast.minTempF)"
+        cell.weatherIcon.image = UIImage.init(named: currentForecast.icon)
+        
+        
+        
         return cell
     }
     

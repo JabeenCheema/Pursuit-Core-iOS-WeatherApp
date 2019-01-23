@@ -31,6 +31,7 @@ struct Forecast: Codable {
     let icon: String
     let precipMM: Double
     let precipIN: Double
+ 
     
 }
 
