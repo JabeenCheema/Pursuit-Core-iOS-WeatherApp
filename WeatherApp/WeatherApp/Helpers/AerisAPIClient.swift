@@ -9,8 +9,10 @@
 import Foundation
 
 final class AerisAPIClient {
-        static func searchPodcast(keyword: String, completionHandler: @escaping (AppError?, [WeatherData]?) -> Void) {
-            NetworkHelper.shared.performDataTask(endpointURLString: "https://api.aerisapi.com/forecasts/NewYork, USA?format=json&filter=day&limit=7&client_id=\(SecretKeys.weatherKey)", httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
+        static func searchZipcode(keyword: String, completionHandler: @escaping (AppError?, [Forecast]?) -> Void) {
+        let urlString = "http://api.aerisapi.com/forecasts/\(keyword)?client_id=\(SecretKeys.weatherID)&client_secret=\(SecretKeys.weatherKey)"
+            
+            NetworkHelper.shared.performDataTask(endpointURLString: urlString , httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
                 if let appError = appError {
                     completionHandler(appError, nil)
                 }
@@ -22,8 +24,9 @@ final class AerisAPIClient {
                 }
                 if let data = data {
                     do {
-                        let weatherdata = try JSONDecoder().decode(WeatherData.self, from: data)
-                        completionHandler(nil, [weatherdata])
+                        let weatherdata = try JSONDecoder().decode(WeatherData.self, from: data).response.first?.periods
+                        dump(weatherdata)
+                        completionHandler(nil, weatherdata)
                     } catch {
                         completionHandler(AppError.decodingError(error), nil)
                     }

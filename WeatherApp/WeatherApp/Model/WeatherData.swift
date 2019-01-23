@@ -29,8 +29,8 @@ struct Forecast: Codable {
     let windSpeedMaxMPH: Int
     let weather: String
     let icon: String
-    let precipMM: Int
-    let precipIN: Int
+    let precipMM: Double
+    let precipIN: Double
     
 }
 

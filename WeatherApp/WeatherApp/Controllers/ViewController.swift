@@ -14,12 +14,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var zipcodetextField: UITextField!
     @IBOutlet weak var forecastLabel: UILabel!
     
-    
+    var weatherData = [Forecast]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.weatherCollectionView.reloadData()
+            }
+        }
+    }
     override func viewDidLoad() {
     super.viewDidLoad()
-    
+    weatherCollectionView.dataSource = self 
+    getData(string: "11429")
   }
 
+    func getData(string: String) { // string = zipcode
+        AerisAPIClient.searchZipcode(keyword: string) { (appError, weatherData) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let weatherData = weatherData {
+                self.weatherData = weatherData
+            dump(weatherData)
+            }
+        }
+        
+        }
+    }
 
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return weatherData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = weatherCollectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as? WeatherCell else { return UICollectionViewCell() }
+        return cell
+    }
+    
+    
 }
-
