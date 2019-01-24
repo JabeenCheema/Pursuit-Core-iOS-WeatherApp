@@ -28,7 +28,8 @@ class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(selectedCity)
+        print(forecastSelected)
       
     }
     

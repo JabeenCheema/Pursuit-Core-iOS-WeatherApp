@@ -11,14 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     var selectedCity = "New York"
-    var weatherForecast = [Forecast]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.weatherCollectionView.reloadData()
-            }
-        }
-    }
-    
+//    var weatherForecast = [Forecast]() {
+//        didSet {
+//            DispatchQueue.main.async {
+//                self.weatherCollectionView.reloadData()
+//            }
+//        }
+//    }
+//
     
 
     @IBOutlet weak var weatherCollectionView: UICollectionView!
@@ -34,7 +34,8 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
     super.viewDidLoad()
-    weatherCollectionView.dataSource = self 
+    weatherCollectionView.dataSource = self
+    zipcodetextField.delegate = self
     getData(string: "11429")
   }
 
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
         let indexPath = weatherCollectionView.indexPath(for: selectedCell),
             let destination = segue.destination as? DetailedViewController else { return }
         destination.selectedCity = selectedCity
-        destination.forecastSelected = weatherForecast[indexPath.row]
+        destination.forecastSelected = weatherData[indexPath.row]
         
     }
     
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
         }
     }
 
-extension ViewController: UICollectionViewDataSource {
+extension ViewController: UICollectionViewDataSource, UITextFieldDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherData.count
     }
@@ -84,6 +85,11 @@ extension ViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text{
+            getData(string: text)
+        }
+        return true
+    }
     
 }
