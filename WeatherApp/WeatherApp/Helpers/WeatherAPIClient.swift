@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class AerisAPIClient {
+final class WeatherAPIClient {
         static func searchZipcode(keyword: String, completionHandler: @escaping (AppError?, [Forecast]?) -> Void) {
         let urlString = "http://api.aerisapi.com/forecasts/\(keyword)?client_id=\(SecretKeys.weatherID)&client_secret=\(SecretKeys.weatherKey)"
             

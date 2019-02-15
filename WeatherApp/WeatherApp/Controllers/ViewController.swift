@@ -11,15 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     
    var selectedCity = String()
-//    var weatherForecast = [Forecast]() {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.weatherCollectionView.reloadData()
-//            }
-//        }
-//    }
-//
-    
 
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     @IBOutlet weak var zipcodetextField: UITextField!
@@ -56,7 +47,7 @@ class ViewController: UIViewController {
     
     
     func getData(string: String) { // string = zipcode
-        AerisAPIClient.searchZipcode(keyword: string) { (appError, weatherData) in
+        WeatherAPIClient.searchZipcode(keyword: string) { (appError, weatherData) in
             if let appError = appError {
                 print(appError.errorMessage())
             } else if let weatherData = weatherData {

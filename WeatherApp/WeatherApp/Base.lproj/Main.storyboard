@@ -193,7 +193,7 @@
             </objects>
             <point key="canvasLocation" x="2612" y="822.63868065967017"/>
         </scene>
-        <!--Detailed View Controller-->
+        <!--Title-->
         <scene sceneID="BFr-ca-AHL">
             <objects>
                 <viewController id="guP-8g-0Qh" customClass="DetailedViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -288,8 +288,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tzM-nW-gDz"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="kDH-Oe-ByD">
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="TWT-dF-JAD">
+                            <connections>
+                                <action selector="FavButtonPressed:" destination="guP-8g-0Qh" id="Bpt-Gy-TXO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cityImage" destination="QUz-YY-Xhi" id="R18-ex-4Ng"/>
+                        <outlet property="favButton" destination="TWT-dF-JAD" id="oLF-hu-1Wv"/>
                         <outlet property="forecastAndDate" destination="NzO-Kb-cam" id="7Zm-Jv-PhY"/>
                         <outlet property="highTemp" destination="lgz-la-KGt" id="0jo-r2-FXS"/>
                         <outlet property="lowTemp" destination="39s-7r-2FP" id="oja-ug-IcR"/>
