@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var selectedCity = "New York"
+   var selectedCity = String()
 //    var weatherForecast = [Forecast]() {
 //        didSet {
 //            DispatchQueue.main.async {
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         let indexPath = weatherCollectionView.indexPath(for: selectedCell),
             let destination = segue.destination as? DetailedViewController else { return }
         destination.selectedCity = selectedCity
-        destination.forecastSelected = weatherData[indexPath.row]
+        destination.forecastSelected =  weatherData[indexPath.row]
         
     }
     
@@ -87,8 +87,18 @@ extension ViewController: UICollectionViewDataSource, UITextFieldDelegate {
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text{
-            getData(string: text)
+            ZipCodeHelper.getLocationName(from: text) { (error, location) in
+                if let error = error {
+                    print("No location found")
+                } else if let location = location {
+                    self.forecastLabel.text = "Weather forecast for \(location)"
+                    self.selectedCity = location
+                    self.getData(string: text)
+                }
+            }
+            
         }
+        
         return true
     }
     

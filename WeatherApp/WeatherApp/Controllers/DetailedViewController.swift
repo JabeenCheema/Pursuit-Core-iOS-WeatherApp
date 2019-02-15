@@ -31,9 +31,22 @@ class DetailedViewController: UIViewController {
         print(selectedCity)
         print(forecastSelected)
       
+    forecastAndDate.text = "Weather forecast for \(selectedCity!)" + " for \(forecastSelected.dateTimeISO)"
+    
+    weatherDescription.text = forecastSelected.weather
+        
+        highTemp.text = "High: \(forecastSelected.maxTempC) ºC"
+        lowTemp.text = "Low: \(forecastSelected.minTempC) ºC"
+        sunrise.text = "Sunrise: \(forecastSelected.sunriseISO)"
+        sunset.text = "Sunset: \(forecastSelected.sunsetISO)"
+        windspeed.text = "Windspeed: \(forecastSelected.windSpeedMaxKPH) KPH"
+        precipitation.text = "Precipitation: \(forecastSelected.precipIN)"
     }
     
 
+    
+    
+    
 
 }
 
