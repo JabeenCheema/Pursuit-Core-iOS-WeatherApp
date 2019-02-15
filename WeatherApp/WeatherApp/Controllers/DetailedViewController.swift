@@ -61,6 +61,14 @@ class DetailedViewController: UIViewController {
             }
         }
     }
+    
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { alert in }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func FavButtonPressed(_ sender: UIBarButtonItem) {
         if let image  = cityImage.image {
             let date = Date()   // so that when you fav an image the newest favorited image appears at the top
@@ -71,7 +79,11 @@ class DetailedViewController: UIViewController {
             guard let image = image.jpegData(compressionQuality: 0.5) else {
                 return print(" no image ")
             }
-        
+        let favorite = Favorites.init(createdTime: timestamp, image: image)
+            if let weatherPhoto = forecastSelected {
+                ImageDataManager.addPhoto(item: favorite)
+                showAlert(title: "Save", message: "Your image has been saved!")
+            }
         
         
         }

@@ -11,6 +11,7 @@
 		45CAD8AE22164369009FB1B4 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CAD8AD22164369009FB1B4 /* ImageModel.swift */; };
 		45CAD8B022164CFF009FB1B4 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CAD8AF22164CFF009FB1B4 /* String + Extension.swift */; };
 		45CAD8B222164D11009FB1B4 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CAD8B122164D11009FB1B4 /* Date + Extension.swift */; };
+		45CAD8B522165872009FB1B4 /* ImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CAD8B422165872009FB1B4 /* ImageDataManager.swift */; };
 		45FBFE5021F6909400C969F6 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFE4F21F6909400C969F6 /* WeatherData.swift */; };
 		45FBFE5421F6AFA300C969F6 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFE5321F6AFA300C969F6 /* DetailedViewController.swift */; };
 		45FBFE5621F6AFB400C969F6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBFE5521F6AFB400C969F6 /* FavoritesViewController.swift */; };
@@ -47,6 +48,7 @@
 		45CAD8AD22164369009FB1B4 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		45CAD8AF22164CFF009FB1B4 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		45CAD8B122164D11009FB1B4 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
+		45CAD8B422165872009FB1B4 /* ImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataManager.swift; sourceTree = "<group>"; };
 		45FBFE4F21F6909400C969F6 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		45FBFE5321F6AFA300C969F6 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		45FBFE5521F6AFB400C969F6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				45FBFE5C21F7122400C969F6 /* WeatherAPIClient.swift */,
 				45CAD8AB22164315009FB1B4 /* ImageAPIClient.swift */,
 				45FBFE5E21F7AF2C00C969F6 /* SecretKeys.swift */,
+				45CAD8B422165872009FB1B4 /* ImageDataManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45CAD8B222164D11009FB1B4 /* Date + Extension.swift in Sources */,
+				45CAD8B522165872009FB1B4 /* ImageDataManager.swift in Sources */,
 				45FBFE5921F7107C00C969F6 /* NetworkHelper.swift in Sources */,
 				57EE00A021F15E0F00D76A6E /* ZipCodeHelper.swift in Sources */,
 				57EE009021F15D7000D76A6E /* ViewController.swift in Sources */,

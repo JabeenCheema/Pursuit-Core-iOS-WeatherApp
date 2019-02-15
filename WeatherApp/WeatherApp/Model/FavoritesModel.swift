@@ -9,10 +9,6 @@
 import Foundation
 
 struct Favorites: Codable {
-    let hits: [HitsWrapper]
-    
-}
-
-struct HitsWrapper: Codable {
-    let largeImageURL: String
+    let createdTime: String
+    let image: Data
 }
